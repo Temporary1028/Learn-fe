@@ -1,0 +1,98 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+.box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+/*构造出一个盒子，在盒子的中间（利用margin 0 auto;)放入一个圆点（利用before;)，旋转盒子，让圆点随之旋转，形成一个大的圆形*/
+.box .circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 300px;
+  top: 0;
+}
+.box .circle:before{
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 15%;
+  height: 15%;
+  background-color: #333;
+  border-radius: 100%;
+}
+
+/*选择匹配父元素下的第1～12个字元素，使圆点围成一圈*/
+.box .circle:nth-child(1) {
+  animation-delay: -1.1s;
+  transform: rotate(30deg);
+}
+
+.box .circle:nth-child(2) {
+  animation-delay: -1.0s;
+  transform: rotate(60deg);
+}
+
+.box .circle:nth-child(3) {
+  animation-delay: -0.9s;
+  transform: rotate(90deg);
+}
+
+.box .circle:nth-child(4) {
+  animation-delay: -0.8s;
+  transform: rotate(120deg);
+}
+
+.box .circle:nth-child(5) {
+  animation-delay: -0.7s;
+  transform: rotate(150deg);
+}
+
+.box .circle:nth-child(6) {
+  animation-delay: -0.6s;
+  transform: rotate(180deg);
+}
+
+.box .circle:nth-child(7) {
+  animation-delay: -0.5s;
+  transform: rotate(210deg);
+}
+
+.box .circle:nth-child(8) {
+  animation-delay: -0.4s;
+  transform: rotate(240deg);
+}
+
+.box .circle:nth-child(9) {
+  animation-delay: -0.3s;
+  transform: rotate(270deg);
+}
+
+.box .circle:nth-child(10) {
+  animation-delay: -0.2s;
+  transform: rotate(300deg);
+}
+
+.box .circle:nth-child(11) {
+  animation-delay: -0.1s;
+  transform: rotate(330deg);
+}
+
+.box .circle:nth-child(12) {
+  transform: rotate(360deg);
+}
+
+/*制作一个让圆点渐隐的动画,并且设置每一个圆点延迟播放，营造旋转效果*/
+@keyframes circleFade {
+  0%, 39%, 100% { opacity: 0; }
+  40% { opacity: 1; } 
+}
+
+.box .circle {
+  animation: circleFade 1.2s infinite ease-in-out both;
+}
+
